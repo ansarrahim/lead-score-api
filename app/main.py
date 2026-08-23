@@ -1,4 +1,5 @@
 from contextlib import asynccontextmanager
+from pathlib import Path
 from typing import Literal
 
 import joblib
@@ -7,7 +8,7 @@ from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, Field
 
-MODEL_PATH = "model/lead_score_model.joblib"
+MODEL_PATH = Path(__file__).resolve().parent.parent / "model" / "lead_score_model.joblib"
 
 model = None
 

@@ -2,6 +2,8 @@
 
 A real trained classifier that scores inbound leads by conversion likelihood — not an LLM prompt wrapper, an actual model trained on real marketing data with measured accuracy.
 
+**Live:** https://lead-score-api-three.vercel.app — try `/docs` for the interactive API explorer, or `POST /score` directly.
+
 ## Why a trained model, not an LLM call
 
 Calling an AI API per-lead (like the [n8n AI Lead Auto-Responder](https://github.com/ansarrahim/n8n-templates)) works well for unstructured tasks like drafting a reply. Scoring is a repeated, structured decision — train once, score thousands of leads in milliseconds, no per-request API cost. This project pairs naturally with that workflow: score a lead here first, then only trigger the (paid, slower) AI-drafted reply for the leads worth replying to personally.
