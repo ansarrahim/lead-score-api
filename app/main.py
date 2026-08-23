@@ -6,6 +6,7 @@ import joblib
 import pandas as pd
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import RedirectResponse
 from pydantic import BaseModel, Field
 
 MODEL_PATH = Path(__file__).resolve().parent.parent / "model" / "lead_score_model.joblib"
@@ -65,6 +66,11 @@ def band_for(probability: float) -> str:
     if probability >= 0.33:
         return "Warm"
     return "Cold"
+
+
+@app.get("/", include_in_schema=False)
+def root():
+    return RedirectResponse("/docs")
 
 
 @app.get("/health")
